@@ -1,11 +1,17 @@
-local ui = dofile("tower_ui.lua")
 local core = dofile("tower_core.lua")
+local tower = dofile("tower.lua")
+local texts = dofile("texts.lua")
+local ui = dofile("tower_ui.lua")
 
--- Lade gespeicherten Stand
+-- Init Tower
+tower.init()
+
+-- Init UI
+ui.init(tower, texts)
+
+-- Load Saved State
 core.load()
 
--- Zeichne UI
+-- UI zeichnen + Input starten
 ui.draw()
-
--- Starte Touchscreen Input Loop
 ui.input()
